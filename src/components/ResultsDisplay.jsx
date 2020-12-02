@@ -10,8 +10,14 @@ const ResultsDisplay = ({
   modalIsOpen,
   handleModalOpen,
   handleModalClose,
+    name,
+    unit,
+    grade,
+    handleChange,
+    handleUpdate
 }) => {
-  return (
+
+    return (
     <div className="allProperties">
       <span className="display">{result.name}</span>
       <span className="display">{result.unit} </span>
@@ -19,7 +25,7 @@ const ResultsDisplay = ({
       <button className="remove-btn" onClick={() => handleRemove(result.id)}>
         Remove
       </button>
-      <button className="edit-btn" onClick={() => handleModalOpen()}>
+      <button className="edit-btn" onClick={() => handleModalOpen(result.id)}>
         Update
       </button>
       <hr />
@@ -37,7 +43,14 @@ const ResultsDisplay = ({
         isOpen={modalIsOpen}
         onRequestClose={() => handleModalClose()}
       >
-        <ResultsUpdate handleModalClose={handleModalClose}/>
+        <ResultsUpdate
+            handleModalClose={handleModalClose}
+            unit={unit}
+            name={name}
+            grade={grade}
+            handleChange={handleChange}
+            handleUpdate={handleUpdate}
+        />
       </Modal>
     </div>
   );

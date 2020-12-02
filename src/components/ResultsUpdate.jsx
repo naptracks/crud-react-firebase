@@ -1,6 +1,7 @@
 import React from "react";
 
 const ResultsUpdate = ({name, unit, grade, handleChange, handleUpdate, handleModalClose}) => {
+  console.log(name)
   return (
     <div className="results-edit">
       <form className="ui-form" autoComplete="off" onSubmit={handleUpdate}>
